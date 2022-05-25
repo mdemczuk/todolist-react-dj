@@ -28,7 +28,7 @@ SECRET_KEY = config("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['react-django.herokuapp.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -81,7 +81,10 @@ WSGI_APPLICATION = 'todolist-project.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(default='postgres://phvpjtcdlwqpcc:f17dcf1b12d2e62d467aad7d79d5aab68488205576a05fdb6864f3e3215379f3@ec2-63-35-156-160.eu-west-1.compute.amazonaws.com:5432/d2bjk9qpvbekc2')
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
 
 
